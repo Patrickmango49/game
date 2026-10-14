@@ -24,7 +24,7 @@ main{max-width:1400px;margin:auto;padding:30px 26px 60px}.hero{display:flex;alig
 (() => {
 const OWNER='Patrickmango49', REPO='game', BRANCH='main';
 const API='https://api.github.com/repos/'+OWNER+'/'+REPO;
-const RAW='https://raw.githubusercontent.com/'+OWNER+'/'+REPO+'/'+BRANCH+'/';
+const ROOT='./';
 const grid=document.getElementById('grid'), search=document.getElementById('search'), sort=document.getElementById('sort'), count=document.getElementById('count');
 let games=[];
 const ignored=new Set(['.git','.github','.vscode','assets','images','img','css','js','fonts','audio','video','build','dist','node_modules']);
@@ -44,7 +44,7 @@ async function load(){
   const res=await fetch(API+'/contents/?ref='+BRANCH);
   if(!res.ok)throw new Error('GitHub returned '+res.status+'. Try again in a moment.');
   const root=await res.json();
-  games=root.filter(x=>x.type==='dir'&&!ignored.has(x.name.toLowerCase())).map(x=>({name:pretty(x.name),path:x.path,href:RAW+encodePath(x.path)+'/',image:''}));
+  games=root.filter(x=>x.type==='dir'&&!ignored.has(x.name.toLowerCase())).map(x=>({name:pretty(x.name),path:x.path,href:ROOT+encodePath(x.path)+'/',image:''}));
   // Use each game's existing local assets when available; inspect cards only as they approach view.
   render();
   const observer=new IntersectionObserver(entries=>{
@@ -60,8 +60,8 @@ async function load(){
       const pic=files.find(f=>f.type==='file'&&/^(thumbnail|thumb|cover|poster|logo|icon|screenshot)[^/]*\.(png|jpe?g|webp|gif|avif)$/i.test(f.name))||files.find(f=>f.type==='file'&&/\.(png|jpe?g|webp|gif|avif)$/i.test(f.name));
       const game=games.find(g=>g.path===path);
       if(game){
-       if(entryFile)game.href=RAW+encodePath(path)+'/'+encodeURIComponent(entryFile.name);
-       if(pic)game.image=RAW+encodePath(path)+'/'+encodeURIComponent(pic.name);
+       if(entryFile)game.href=ROOT+encodePath(path)+'/'+encodeURIComponent(entryFile.name);
+       if(pic)game.image=ROOT+encodePath(path)+'/'+encodeURIComponent(pic.name);
        // Update the visible card without changing the search or scroll position.
        const card=[...grid.querySelectorAll('.card')].find(a=>a.title==='Play '+game.name);
        if(card){card.href=game.href;if(pic){const img=document.createElement('img');img.loading='lazy';img.src=game.image;img.alt='';img.onerror=()=>img.remove();card.querySelector('.cover').prepend(img)}}
