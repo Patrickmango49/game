@@ -12,7 +12,7 @@ header{position:sticky;top:0;z-index:5;background:#090a0ee8;backdrop-filter:blur
 .brand{font-weight:850;letter-spacing:-.05em;font-size:25px}.brand span{color:#a69aff}.sub{color:var(--muted);font-size:13px;margin-top:1px}
 .controls{display:flex;gap:10px;flex:1;max-width:620px}input,select{background:#151722;border:1px solid #303344;color:white;border-radius:12px;padding:12px 14px;min-width:0;outline:none}input{flex:1}input:focus,select:focus{border-color:var(--accent)}
 main{max-width:1400px;margin:auto;padding:30px 26px 60px}.hero{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:6px 0 24px;flex-wrap:wrap}.hero h1{font-size:clamp(28px,4vw,42px);letter-spacing:-.045em;margin:0 0 5px}.hero p{color:var(--muted);margin:0}.count{color:#c8c1ff;background:#292442;border:1px solid #494070;border-radius:99px;padding:7px 12px;font-size:13px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}.card{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:17px;background:linear-gradient(150deg,#171925,#101117);text-decoration:none;color:inherit;transition:transform .18s,border-color .18s,box-shadow .18s}.card:hover{transform:translateY(-3px);border-color:#7164cc;box-shadow:0 12px 35px #0005}.cover{height:130px;position:relative;display:grid;place-items:center;overflow:hidden;background:linear-gradient(135deg,#252143,#161925 60%,#30274a)}.cover:before{content:"";position:absolute;width:150px;height:150px;border:1px solid #ffffff18;border-radius:40%;transform:rotate(35deg)}.cover img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.glyph{font-size:42px;font-weight:900;color:#ffffffb0;letter-spacing:-.08em;text-shadow:0 5px 25px #0008}.cardbody{padding:14px 14px 16px}.name{font-weight:750;line-height:1.3;overflow-wrap:anywhere}.meta{color:var(--muted);font-size:12px;margin-top:7px}.play{display:inline-flex;margin-top:12px;font-size:12px;font-weight:700;color:#c6beff;background:#282343;border-radius:8px;padding:6px 9px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}.card{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:17px;background:linear-gradient(150deg,#171925,#101117);text-decoration:none;color:inherit;transition:transform .18s,border-color .18s,box-shadow .18s}.card:hover{transform:translateY(-3px);border-color:#7164cc;box-shadow:0 12px 35px #0005}.cover{height:130px;position:relative;display:grid;place-items:center;overflow:hidden;background:linear-gradient(135deg,#252143,#161925 60%,#30274a)}.cover:before{content:"";position:absolute;width:150px;height:150px;border:1px solid #ffffff18;border-radius:40%;transform:rotate(35deg)}.cover img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.glyph{font-size:42px;font-weight:900;color:#ffffffb0;letter-spacing:-.08em;text-shadow:0 5px 25px #0008}.cardbody{padding:14px 14px 16px}.name{font-weight:750;line-height:1.3;overflow-wrap:anywhere}.meta{color:var(--muted);font-size:12px;margin-top:7px}.play{display:inline-flex;margin-top:12px;font-size:12px;font-weight:700;color:#c6beff;background:#282343;border-radius:8px;padding:6px 9px}.actions{display:flex;gap:7px;flex-wrap:wrap}.embedbtn,.copybtn{cursor:pointer;border:1px solid #39364f;border-radius:8px;padding:7px 9px;background:#171522;color:#ddd7ff;font:700 12px inherit}.embedbtn:hover,.copybtn:hover{background:#30294a;border-color:#7666d8}.modal{position:fixed;inset:0;z-index:20;background:#05060bd9;backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:18px}.modal.open{display:flex}.dialog{width:min(650px,100%);max-height:90vh;overflow:auto;background:#11131b;border:1px solid #343548;border-radius:18px;padding:22px;box-shadow:0 25px 90px #0009}.dialog h2{margin:0 0 6px}.dialog p{color:var(--muted);margin:0 0 16px}.dialog label{display:block;font-size:12px;color:#b8b9c9;margin:14px 0 6px}.dialog textarea{width:100%;min-height:58px;resize:vertical;background:#090b11;color:#f3f3f8;border:1px solid #333548;border-radius:10px;padding:10px;font:12px/1.5 ui-monospace,monospace;overflow-wrap:anywhere}.dialogtop{display:flex;align-items:center;justify-content:space-between;gap:10px}.closebtn{background:#232532;border:1px solid #414356;color:white;border-radius:9px;padding:7px 10px;cursor:pointer}.dialogactions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.hint{font-size:12px;color:#9ca3b5;margin-top:12px}
 .state{padding:60px 20px;text-align:center;color:var(--muted);grid-column:1/-1}.error{color:#ffaaa8}.foot{text-align:center;color:#71778a;font-size:12px;padding:28px 0 0}
 @media(max-width:600px){.top,main{padding-left:16px;padding-right:16px}.controls{width:100%;max-width:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.cover{height:105px}.cardbody{padding:11px}.name{font-size:13px}}
 </style>
@@ -20,6 +20,7 @@ main{max-width:1400px;margin:auto;padding:30px 26px 60px}.hero{display:flex;alig
 <body>
 <header><div class="top"><div><div class="brand">GAME<span>LIBRARY</span></div><div class="sub">Your collection, all in one place</div></div><div class="controls"><input id="search" type="search" placeholder="Search games…" aria-label="Search games"><select id="sort" aria-label="Sort games"><option value="az">Name A–Z</option><option value="za">Name Z–A</option></select></div></div></header>
 <main><section class="hero"><div><h1>Pick your next game.</h1><p>Browse the games stored in this repository. Select any card to launch it.</p></div><div class="count" id="count">Loading library…</div></section><section class="grid" id="grid"><div class="state">Loading games from the repository…</div></section><div class="foot">Game Library · Uses the repository's existing game files and assets</div></main>
+<div class="modal" id="embedModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="dialog"><div class="dialogtop"><h2 id="modalTitle">Share game</h2><button class="closebtn" id="closeModal" type="button">Close ✕</button></div><p>Copy a direct game link or embed it in another website.</p><label for="gameUrl">Direct game link</label><textarea id="gameUrl" readonly></textarea><label for="iframeCode">Embed code (iframe)</label><textarea id="iframeCode" readonly></textarea><div class="dialogactions"><button class="copybtn" id="copyLink" type="button">Copy game link</button><button class="copybtn" id="copyEmbed" type="button">Copy embed code</button><button class="copybtn" id="openGame" type="button">Open game ↗</button></div><div class="hint">The website must be published on a public web host before these links work for other people. Some games may block iframe embedding or require their original folder assets.</div></div></div>
 <script>
 (() => {
 const OWNER='Patrickmango49', REPO='game', BRANCH='main';
@@ -37,8 +38,30 @@ function render(){
  if(sort.value==='za')list.reverse();
  count.textContent=list.length+' game'+(list.length===1?'':'s');
  if(!list.length){grid.innerHTML='<div class="state">No games match that search.</div>';return}
- grid.innerHTML=list.map(g=>'<a class="card" href="'+esc(g.href)+'" title="Play '+esc(g.name)+'"><div class="cover">'+(g.image?'<img loading="lazy" src="'+esc(g.image)+'" alt="" onerror="this.remove()">':'')+'<span class="glyph">'+esc(g.name.slice(0,2).toUpperCase())+'</span></div><div class="cardbody"><div class="name">'+esc(g.name)+'</div><div class="meta">Game · Repository file</div><span class="play">Play game ↗</span></div></a>').join('');
+ grid.innerHTML=list.map(g=>'<article class="card" data-game="'+esc(g.path)+'" title="'+esc(g.name)+'"><a class="coverlink" href="'+esc(g.href)+'" style="color:inherit;text-decoration:none"><div class="cover">'+(g.image?'<img loading="lazy" src="'+esc(g.image)+'" alt="" onerror="this.remove()">':'')+'<span class="glyph">'+esc(g.name.slice(0,2).toUpperCase())+'</span></div></a><div class="cardbody"><div class="name">'+esc(g.name)+'</div><div class="meta">Game · Repository file</div><div class="actions"><a class="play" href="'+esc(g.href)+'">Play game ↗</a><button class="embedbtn" type="button" data-share="'+esc(g.path)+'">Share / Embed</button></div></div></article>').join('');
 }
+const modal=document.getElementById('embedModal'), gameUrl=document.getElementById('gameUrl'), iframeCode=document.getElementById('iframeCode');
+let selectedUrl='';
+function openShare(path){
+ const game=games.find(g=>g.path===path);if(!game)return;
+ selectedUrl=new URL(game.href,location.href).href;
+ document.getElementById('modalTitle').textContent='Share '+game.name;
+ gameUrl.value=selectedUrl;
+ iframeCode.value='<iframe src="'+selectedUrl.replace(/&/g,'&amp;')+'" title="'+game.name.replace(/&/g,'&amp;').replace(/"/g,'&quot;')+'" width="100%" height="600" style="border:0;border-radius:12px" allow="fullscreen; autoplay; gamepad" allowfullscreen loading="lazy"></iframe>';
+ modal.classList.add('open');
+}
+async function copyText(value,button){
+ try{await navigator.clipboard.writeText(value);const old=button.textContent;button.textContent='Copied ✓';setTimeout(()=>button.textContent=old,1400)}
+ catch{const area=document.createElement('textarea');area.value=value;document.body.appendChild(area);area.select();document.execCommand('copy');area.remove();button.textContent='Copied ✓'}
+}
+grid.addEventListener('click',e=>{const b=e.target.closest('[data-share]');if(b){e.preventDefault();e.stopPropagation();openShare(b.dataset.share)}});
+document.getElementById('closeModal').addEventListener('click',()=>modal.classList.remove('open'));
+modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('open')});
+document.getElementById('copyLink').addEventListener('click',e=>copyText(gameUrl.value,e.currentTarget));
+document.getElementById('copyEmbed').addEventListener('click',e=>copyText(iframeCode.value,e.currentTarget));
+document.getElementById('openGame').addEventListener('click',()=>{if(selectedUrl)window.open(selectedUrl,'_blank','noopener')});
+
 async function load(){
  try{
   const res=await fetch(API+'/contents/?ref='+BRANCH);
@@ -63,13 +86,13 @@ async function load(){
        if(entryFile)game.href=ROOT+encodePath(path)+'/'+encodeURIComponent(entryFile.name);
        if(pic)game.image=ROOT+encodePath(path)+'/'+encodeURIComponent(pic.name);
        // Update the visible card without changing the search or scroll position.
-       const card=[...grid.querySelectorAll('.card')].find(a=>a.title==='Play '+game.name);
-       if(card){card.href=game.href;if(pic){const img=document.createElement('img');img.loading='lazy';img.src=game.image;img.alt='';img.onerror=()=>img.remove();card.querySelector('.cover').prepend(img)}}
+       const card=grid.querySelector('[data-game="'+CSS.escape(game.path)+'"]');
+       if(card){card.querySelectorAll('a.play,a.coverlink').forEach(a=>a.href=game.href);if(pic){const img=document.createElement('img');img.loading='lazy';img.src=game.image;img.alt='';img.onerror=()=>img.remove();card.querySelector('.cover').prepend(img)}}
       }
     }).catch(()=>{});
    });
   },{rootMargin:'500px'});
-  const watch=()=>{grid.querySelectorAll('.card').forEach(card=>{const g=games.find(x=>card.title==='Play '+x.name);if(g&&!g.checked){g.checked=true;card.dataset.path=g.path;observer.observe(card)}})};
+  const watch=()=>{grid.querySelectorAll('.card').forEach(card=>{const g=games.find(x=>x.path===card.dataset.game);if(g&&!g.checked){g.checked=true;card.dataset.path=g.path;observer.observe(card)}})};
   new MutationObserver(watch).observe(grid,{childList:true});
   watch();
  }catch(err){grid.innerHTML='<div class="state error">Could not load the game library.<br>'+esc(err.message)+'<br><br><button onclick="location.reload()">Try again</button></div>';count.textContent='Unavailable'}
